@@ -1,0 +1,2 @@
+module BookingDataHelper
+end
