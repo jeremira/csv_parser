@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :spectacle do
-    key 1
-    name "MyString"
+    sequence(:key) { |n| n }
+    name "spectacle name test"
   end
 end
