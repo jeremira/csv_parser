@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124005608) do
+ActiveRecord::Schema.define(version: 20180124033537) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "ticket_number"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180124005608) do
     t.string "adress"
     t.integer "zip_code"
     t.string "country"
-    t.integer "age"
+    t.integer "age", default: 0
     t.string "sexe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
