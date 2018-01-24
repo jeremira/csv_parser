@@ -3,19 +3,20 @@ require 'rails_helper'
 RSpec.describe Spectator, type: :model do
 
   let(:csv_file) {
-    CSV.open("test_file.csv", "wb") do |csv|
-      csv << ["Numero billet", "Reservation", "Date reservation",
-              "Heure reservation", "Cle spectacle", "Spectacle",
-              "Cle representation", "Représentation", "Date représentation", "Heure représentation",
-              "Date fin représentation", "Heure fin représentation", "Prix", "Type de produit",
-              "Filiere de vente", "Nom", "Prenom", "Email", "Adresse", "Code postal", "Age", "Sexe"
-             ]
+    CSV.open('test.csv','w', quote_char: '"', col_sep: ';', row_sep: :auto,) do|csv|
       csv << [
-        "1", "2", "2012/01/01", "16:00:00", "3", "Martine à la plage", "4", "Martine representation", "2012/02/02",
-        "14:02:00", "2012/03/03", "15:02:00", "99", "abonnement", "guichet", "dupond", "jean", "jd@aol.com",
-        "13 adress test", "31000", "france", "75", "m"]
+        'Numero billet', 'Reservation', 'Date reservation',
+        'Heure reservation', 'Cle spectacle', 'Spectacle',
+        'Cle representation', 'Représentation', 'Date représentation', 'Heure représentation',
+        'Date fin représentation', 'Heure fin représentation', 'Prix', 'Type de produit',
+        'Filiere de vente', 'Nom', 'Prenom', 'Email', 'Adresse', 'Code postal', 'Age', 'Sexe'
+      ]
+      csv << [
+            '1', '2', '2012/01/01', '16:00:00', '3', 'Martine à la plage', '4', 'Martine representation', '2012/02/02',
+            '14:02:00', '2012/03/03', '15:02:00', '99', 'abonnement', 'guichet', 'dupond', 'jean', 'jd@aol.com',
+            '13 adress test', '31000', 'france', '75', 'm'
+           ]
     end
-
   }
 
   describe "#parse_file" do

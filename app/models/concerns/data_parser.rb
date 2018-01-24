@@ -3,7 +3,8 @@ module DataParser
 
   def self.parse_file file
 
-    CSV.foreach(file.path, headers: true) do |row|]
+    CSV.foreach(file.path, quote_char: '"', col_sep: ';', row_sep: :auto, headers: true) do |row|
+      puts row.inspect
       attributes = {spectacle: { key: row[4], name: row[5] },
                     venue: { key: row[6], start_time: DateTime.parse(row[8] + ' ' + row[9]),
                              end_time: DateTime.parse(row[10] + ' ' + row[11])},
@@ -23,9 +24,8 @@ module DataParser
       booking = venue.bookings.build(attributes[:booking])
       booking.spectator_id = spectator.id
       booking.save
-
     end
-
+    return true
   end
 
   private
