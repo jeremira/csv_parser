@@ -3,8 +3,7 @@ module DataParser
 
   def self.parse_file file
 
-    CSV.foreach(file.path, headers: true) do |row|
-      puts row[22]
+    CSV.foreach(file.path, headers: true) do |row|]
       attributes = {spectacle: { key: row[4], name: row[5] },
                     venue: { key: row[6], start_time: DateTime.parse(row[8] + ' ' + row[9]),
                              end_time: DateTime.parse(row[10] + ' ' + row[11])},
