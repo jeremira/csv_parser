@@ -4,7 +4,7 @@ class Spectator < ApplicationRecord
    validates :email, uniqueness: true
 
    before_save :check_age_validity
-   before_save :check_email_validity
+   before_validation :check_email_validity
 
    private
      def check_age_validity
@@ -14,6 +14,7 @@ class Spectator < ApplicationRecord
      end
 
      def check_email_validity
+
        email = self.email
        regex = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
        email.scan(regex) { |clean_email| self.email = clean_email }

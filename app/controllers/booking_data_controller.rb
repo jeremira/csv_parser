@@ -23,7 +23,9 @@ class BookingDataController < ApplicationController
     @average_price = number_to_currency(@average_price, unit: '€', precision: 2)
     @average_price_by_client = @total_income / (@total_client.nonzero? || 1)
     @average_price_by_client = number_to_currency(@average_price_by_client, unit: '€', precision: 2)
-    @average_age = Spectator.where.not(age: 0).average(:age).round
+    @average_age = Spectator.where.not(age: 0).average(:age) || 0
+    @average_age = @average_age.round
+
   end
 
 end
