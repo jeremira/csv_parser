@@ -8,10 +8,6 @@ RSpec.describe Spectator, type: :model do
     it 'has a valid factory' do
       expect(spectator).to be_valid
     end
-    it 'has an unique email' do
-      spectator.save
-      another_spectator.email = spectator.email
-      expect(another_spectator).to_not be_valid
-    end
+  
 
 end
